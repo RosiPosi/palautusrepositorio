@@ -1,5 +1,5 @@
 import unittest
-from statistics_service import StatisticsService
+from statistics_service import StatisticsService, SortBy
 from player import Player
 
 class PlayerReaderStub:
@@ -15,7 +15,7 @@ class PlayerReaderStub:
 class TestStatisticsService(unittest.TestCase):
     def setUp(self):
         # annetaan StatisticsService-luokan oliolle "stub"-luokan olio
-        self.stats = StatisticsService
+        self.stats = StatisticsService(PlayerReaderStub())
 
     def test_search_finds_player(self):
         player = self.stats.search("Lemieux")
@@ -37,16 +37,37 @@ class TestStatisticsService(unittest.TestCase):
         players = self.stats.team("XXX")
         self.assertEqual(players, [])
 
-    def test_top_players_points_order(self):
-        players = self.stats.top(2)
+    def test_top_orders_by_points(self):
+        players = self.stats.top(3, SortBy.POINTS)
         self.assertEqual(
-            [player.name for player in players],
+            [p.name for p in players],
             ["Gretzky", "Lemieux", "Yzerman"]
         )
 
-    def test_top_players(self):
-        players = self.stats.top(5)
-        self.assertEqual(len(players), 5)
+    def test_top_default_points(self):
+        players = self.stats.top(3)
+        self.assertEqual(
+            [p.name for p in players],
+            ["Gretzky", "Lemieux", "Yzerman"]
+        )
+
+    def test_top_orders_by_goals(self):
+        players = self.stats.top(3, SortBy.GOALS)
+        self.assertEqual(
+            [p.name for p in players],
+            ["Lemieux", "Yzerman", "Kurri"]
+        )
+
+    def test_top_orders_by_assists(self):
+        players = self.stats.top(3, SortBy.ASSISTS)
+        self.assertEqual(
+            [p.name for p in players],
+            ["Gretzky", "Yzerman", "Lemieux"]
+        )
+
+    def test_top_returns_requested_number(self):
+        players = self.stats.top(2)
+        self.assertEqual(len(players), 2)
 
 
 if __name__ == "__main__":
