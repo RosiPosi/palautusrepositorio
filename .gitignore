@@ -8,5 +8,3 @@ log.html
 report.html
 browser/
 playwright-log.txt
-pyproject.toml
-uv.lock
