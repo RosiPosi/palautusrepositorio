@@ -1,6 +1,5 @@
 import requests
 
-
 class Player:
     def __init__(self, dict):
         self.name = dict['name']
@@ -9,10 +8,10 @@ class Player:
         self.goals = dict['goals']
         self.team = dict['team']
         self.total = self.assist + self.goals
-    
+
     def __str__(self):
         return f"{self.name:20} team {self.team:20} goals {self.goals} + {self.assist} = {self.total}"
-    
+
 class PlayerReader:
     def __init__(self, url):
         self.url = url
@@ -25,7 +24,7 @@ class PlayerReader:
 
     def get_players(self):
         return self.players
-    
+
 class PlayerStats:
     def __init__(self, reader):
         self.players = reader.get_players()
@@ -38,5 +37,3 @@ class PlayerStats:
                 players.append(player)
 
         return sorted(players, key=lambda player: player.total, reverse=True)
-        
-

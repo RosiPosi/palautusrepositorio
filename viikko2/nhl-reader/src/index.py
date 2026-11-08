@@ -1,7 +1,6 @@
-import requests
-from player import PlayerReader, PlayerStats
 from rich.console import Console
 from rich.table import Table
+from player import PlayerReader, PlayerStats
 
 def main():
     url = "https://studies.cs.helsinki.fi/nhlstats/2024-25/players"
