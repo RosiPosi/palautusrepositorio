@@ -26,7 +26,16 @@ class PlayerReader:
         return self.players
     
 class PlayerStats:
-    def top_scorers_by_nationality(self, dict):
-        pass
+    def __init__(self, reader):
+        self.players = reader.get_players()
+
+    def top_scorers_by_nationality(self, nationality):
+        players = []
+
+        for player in self.players:
+            if player.nation == nationality:
+                players.append(player)
+
+        return sorted(players, key=lambda player: player.total, reverse=True)
         
 

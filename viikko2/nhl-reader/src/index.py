@@ -1,6 +1,5 @@
 import requests
-from player import PlayerReader
-from player import PlayerStats
+from player import PlayerReader, PlayerStats
 
 def main():
     url = "https://studies.cs.helsinki.fi/nhlstats/2024-25/players"
@@ -13,3 +12,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
