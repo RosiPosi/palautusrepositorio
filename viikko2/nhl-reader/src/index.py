@@ -14,7 +14,8 @@ def main():
         player = Player(player_dict)
         players.append(player)
 
-    print("Oliot:")
+    print("Players from FIN")
 
     for player in players:
-        print(player)
+        if player.nation == "FIN":
+            print(player)
