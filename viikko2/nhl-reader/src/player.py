@@ -1,4 +1,5 @@
 import requests
+from rich import Table
 
 class Player:
     def __init__(self, dict):
