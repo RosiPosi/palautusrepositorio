@@ -19,3 +19,6 @@ def main():
     for player in players:
         if player.nation == "FIN":
             print(player)
+
+if __name__ == "__main__":
+    main()
