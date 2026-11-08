@@ -6,15 +6,16 @@ def main():
     url = "https://studies.cs.helsinki.fi/nhlstats/2024-25/players"
     reader = PlayerReader(url)
     stats = PlayerStats(reader)
-    players = stats.top_scorers_by_nationality("FIN")
+    team = input("Give team abbreviation: ").strip().upper()
+    players = stats.top_scorers_by_team(team)
 
     console = Console()
-    table = Table(title="Finnish players 2024-2025")
+    table = Table(title=f"{team} players 2024-2025")
 
     table.add_column("Name", style="cyan")
     table.add_column("Team", style="magenta")
-    table.add_column("Assists", style="green")
     table.add_column("Goals", style="green")
+    table.add_column("Assists", style="green")
     table.add_column("Points", style="green")
 
     for player in players:
