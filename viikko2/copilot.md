@@ -11,7 +11,7 @@ Eroaako testeissä joku siitä miten testejä tehtiin edellisellä viikolla?
 - Koska Copilot teki muutoksia, testien tulokset eivät tuntuneet omalta ongelmalta yhtä paljoa. Epäonnistumiset olivat enemmän AI:n syytä kuin omat virheet. En ole varma mitä tällä kysymyksellä halutaan sanoa.
 
 Löysikö Pylint agentin koodista virheitä?
-- Kyllä. Se pudotti arvon noin yhden pisteen. Sillä oli paljon Trailing whitespace ja Too few public methods ongelmia.
+- Kyllä. Se pudotti arvon noin yhden pisteen. Sillä oli paljon Trailing whitespace ja Too few public methods ongelmia. Se kuitenkin pystyi korjaamaan ne itsekseen, jos siltä pyysi.
 
 Mitä muuta opit?
 - AI on kätevä, jos haluaa nopeuttaa prosessia, jonka kanssa on jo tuttu. AI kuitenkin kysyy paljon lupia, joiden kanssa täytyy olla varovainen. Ei tuntunut mukavalta katsoa miten paljoa se editoi ja kysyi suorittaa. On tärkeä lukea tarkasti, mitä AI haluaa lisätä.
