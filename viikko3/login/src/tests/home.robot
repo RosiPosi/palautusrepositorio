@@ -17,4 +17,4 @@ Click Register Link
 
 Reset Application And Go To Starting Page
   Reset Application
-  Go To Starting Page
+  Go To    ${HOME_URL}
