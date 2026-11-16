@@ -6,6 +6,48 @@ Test Setup      Reset Application Create User And Go To Register Page
 
 *** Test Cases ***
 
+Register With Password Containing Digits
+    Set Username    newuser
+    Set Password    kalle123
+    Set Password Confirmation    kalle123
+    Click    button >> text=Register
+    Get Title    ==    Welcome to Ohtu Application!
+
+Register With Password Containing Special Character
+    Set Username    newuser
+    Set Password    kalle#abc
+    Set Password Confirmation    kalle#abc
+    Click    button >> text=Register
+    Get Title    ==    Welcome to Ohtu Application!
+
+Register Rejects Lowercase Letters Only Password
+    Set Username    newuser
+    Set Password    kallekalle
+    Set Password Confirmation    kallekalle
+    Click    button >> text=Register
+    Register Should Fail With Message    Password must contain at least one non-letter character
+
+Register Rejects Mixed Case Letters Only Password
+    Set Username    newuser
+    Set Password    KalleKalle
+    Set Password Confirmation    KalleKalle
+    Click    button >> text=Register
+    Register Should Fail With Message    Password must contain at least one non-letter character
+
+Register With Matching Password Confirmation
+    Set Username    newuser
+    Set Password    password123
+    Set Password Confirmation    password123
+    Click    button >> text=Register
+    Get Title    ==    Welcome to Ohtu Application!
+
+Register Rejects Different Password Confirmation
+    Set Username    newuser
+    Set Password    password123
+    Set Password Confirmation    password124
+    Click    button >> text=Register
+    Register Should Fail With Message    Password and password confirmation do not match
+
 Register With Valid Username And Password
     Set Username    newuser
     Set Password    password123
