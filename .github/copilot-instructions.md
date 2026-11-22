@@ -8,3 +8,10 @@
 - Keep business logic in `src/services/user_service.py`, separate from the in-memory user storage in `src/repositories/user_repository.py`.
 - The repository stores users in memory; `POST /tests/reset` clears that state for test setup.
 - HTML pages are Jinja templates in `src/templates/`; Robot browser suites and shared browser setup are in `src/tests/`.
+
+# viikko4/tdd-ostoskori
+
+- Tests executed with uv run pytest
+- Code of ostos.py and tuote.py should not be changed
+- Tests should not be edited unless explicitly asked
+- Always implement absolutely minimal code that makes the tests pass
